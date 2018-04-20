@@ -42,7 +42,7 @@ Or:
 
 * https://www.freedesktop.org/software/systemd/man/systemd.service.html
 
-##Controlling the Service
+## Controlling the Service
 
 ### Control whether service loads on boot
 systemctl enable
@@ -56,7 +56,7 @@ systemctl stop
 systemctl daemon-reload # Run if .service file has changed
 systemctl restart
 
-## Controlling the Service
+## View Status/Logs
 
 ### See if running, uptime, view latest logs
 systemctl status
@@ -67,7 +67,7 @@ journalctl
 ### Tail logs
 journalctl -f
 
-## Show logs for specific service
+### Show logs for specific service
 journalctl -u my_daemon.service
 
 
@@ -96,3 +96,5 @@ Apr 20 17:44:03 vrodri3-work ls[15353]: usr
 Apr 20 17:44:03 vrodri3-work ls[15353]: var
 
 ```
+More cool info at : 
+https://www.devdungeon.com/content/creating-systemd-service-files

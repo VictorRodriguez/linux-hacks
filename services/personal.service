@@ -1,0 +1,8 @@
+[Unit]
+Description=personal
+
+[Service]
+ExecStart=/usr/bin/ls
+
+[Install]
+WantedBy=multi-user.target

@@ -96,6 +96,15 @@ grubby --default-kernel
 grub2-mkconfig > /boot/efi/EFI/centos/grub.cfg
 ```
 
+## Reboot and review
+
+```
+reboot
+
+[...]
+
+uname -a
+```
 
 ## TODO
 
@@ -104,3 +113,4 @@ grub2-mkconfig > /boot/efi/EFI/centos/grub.cfg
 ### Refrs
 
 1 ) https://www.cyberciti.biz/tips/compiling-linux-kernel-26.html
+2 ) https://linuxhint.com/grub2_mkconfig_tutorial/

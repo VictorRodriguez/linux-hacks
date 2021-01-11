@@ -91,6 +91,7 @@ grubby --default-kernel
 ```
 
 ## For EFI
+IMPORTANT: Is necesary to perform previous instructions to Update grub config
 
 ```
 grub2-mkconfig > /boot/efi/EFI/centos/grub.cfg

@@ -78,16 +78,33 @@ sudo make install
 
 ## Update grub config
 
+First is necesary to find what kernel do we want: 
+
 ```
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-sudo grubby --set-default /boot/vmlinuz-5.6.9
+awk -F\' '$1=="menuentry " {print $2}' /etc/grub2.cfg
+```
+Will print a list of the kernels we want, such as: 
+
+```
+Linux Server, with Unbreakable Enterprise Kernel 3.8.13-94.el7uek.x86_64
+Linux Server, with Unbreakable Enterprise Kernel 3.8.13-94.el7uek.x86_64 with debugging
+Linux Server 7.1, with Linux 3.10.0-229.el7.x86_64
+Linux Server 7.1, with Unbreakable Enterprise Kernel 3.8.13-55.1.6.el7uek.x86_64
+Linux Server 7.1, with Linux 0-rescue-441e86c9ff854310a306bd33e56aae2b
 ```
 
-You can confirm the details with the following commands:
+NOTE: The first entry is denoted as Zero. So currently the Server is booted to 0th entry as per the above `uname -a` command output.
+
+Let us modify the Kernel Version to 3.8.13-55.1.6.el7uek.x86_64 which is at line number 4 but denoted as entry 3.
+
 ```
-grubby --info=ALL | more
-grubby --default-index
-grubby --default-kernel
+# grub2-set-default 3
+```
+
+Changes to /etc/default/grub require rebuilding the grub.cfg file as follows:
+
+```
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 ## For EFI

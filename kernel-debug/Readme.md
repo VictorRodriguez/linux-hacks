@@ -89,7 +89,7 @@ was reserved for crash kernel:
 ```
 cat /proc/cmdline
 BOOT_IMAGE=/vmlinuz-3.8.13-98.2.1.el7uek.x86_64 root=/dev/mapper/rhel-root \
-rord.lvm.lv=rhel/root crashkernel=128M rd.lvm.lv=rhel/swap \
+rord.lvm.lv=rhel/root crashkernel=256M rd.lvm.lv=rhel/swap \
 vconsole.font=latarcyrheb-sun16 vconsole.keymap=us rhgb quiet nomodeset
 ```
 
@@ -199,4 +199,5 @@ LOAD AVERAGE: 0.24, 0.06, 0.02
 
 [1] https://www.thegeekdiary.com/centos-rhel-7-how-to-configure-kdump/
 [2] https://www.linuxjournal.com/content/oops-debugging-kernel-panics-0
+
 

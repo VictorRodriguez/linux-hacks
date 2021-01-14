@@ -77,7 +77,7 @@ path /usr/local/cores
 
 ```
 grub2-mkconfig -o /boot/grub2/grub.cfg
-grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 reboot
 ```
 
@@ -153,9 +153,11 @@ vim /etc/yum.repos.d/CentOS-Linux-Debuginfo.repo
 Change enabled=0 to 1
 
 ```
-yum install kernel-debuginfo
-yum search kernel-debug
-debuginfo-install kernel-4.18.0-240.el8.x86_64
+yum install yum-utils
+```
+Check kernel version -- uname -r -- and download kernel source
+```
+debuginfo-install kernel-`uname -r`
 ```
 If you re behind a proxy, make sure that debuginfo-install has proxy configured
 

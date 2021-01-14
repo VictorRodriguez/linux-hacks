@@ -87,7 +87,7 @@ Check and make sure kernel command line includes the kdump config and memory
 was reserved for crash kernel:
 
 ```
-# cat /proc/cmdline
+cat /proc/cmdline
 BOOT_IMAGE=/vmlinuz-3.8.13-98.2.1.el7uek.x86_64 root=/dev/mapper/rhel-root \
 rord.lvm.lv=rhel/root crashkernel=128M rd.lvm.lv=rhel/swap \
 vconsole.font=latarcyrheb-sun16 vconsole.keymap=us rhgb quiet nomodeset
@@ -165,4 +165,38 @@ After the kernel debug info is install we can use crash tool to analyze:
 cd /var/crash/** folder name crash
 crash /usr/lib/debug/lib/modules/4.18.0-240.el8.x86_64/vmlinux /var/crash/<>/vmcore
 ```
+
+# Debug a Kernel driver with null pointer using Kdump
+
+Please refer to null_pointer.c code to build and insmod a driver with kernel
+panic, after the vmcore is generated we can use crash to show this information
+
+```
+
+      KERNEL: /usr/lib/debug/vmlinux-4.9.0-8-amd64
+    DUMPFILE: dump.201902261035  [PARTIAL DUMP]
+        CPUS: 4
+        DATE: Tue Feb 26 10:37:47 2019
+      UPTIME: 00:11:16
+LOAD AVERAGE: 0.24, 0.06, 0.02
+       TASKS: 102
+    NODENAME: deb-panic
+     RELEASE: 4.9.0-8-amd64
+     VERSION: #1 SMP Debian 4.9.144-3 (2019-02-02)
+     MACHINE: x86_64  (2592 Mhz)
+      MEMORY: 4 GB
+       PANIC: "BUG: unable to handle kernel NULL pointer
+ ↪dereference at 0000000000000001"
+         PID: 1493
+     COMMAND: "insmod"
+        TASK: ffff893c5a5a5080 [THREAD_INFO: ffff893c5a5a5080]
+         CPU: 3
+       STATE: TASK_RUNNING (PANIC)
+
+```
+
+## References
+
+[1] https://www.thegeekdiary.com/centos-rhel-7-how-to-configure-kdump/
+[2] https://www.linuxjournal.com/content/oops-debugging-kernel-panics-0
 

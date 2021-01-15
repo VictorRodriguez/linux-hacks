@@ -22,7 +22,7 @@ to have a proper set up enviroment to build and install proper linux kernel imag
 
 To use the kdump service, you must have the kexec-tools package installed. If not already installed, install the kexec-tools.
 
-``
+```
 yum install kexec-tools
 ```
 

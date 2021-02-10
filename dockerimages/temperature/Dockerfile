@@ -1,4 +1,6 @@
 FROM centos:latest
 
-RUN dnf instlal python3
+RUN yum install python3 -y
+COPY temp.py /temp.py
+CMD python3 /temp.py
 

@@ -1,4 +1,4 @@
-#Set up the number of cores:
+## Set up the number of cores:
 
 
 * First we have 4 cores:

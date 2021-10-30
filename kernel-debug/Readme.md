@@ -81,6 +81,10 @@ grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 reboot
 ```
 
+IMPORTANT! For Centos 8 follow grubby tool
+https://docs.fedoraproject.org/en-US/Fedora/23/html/System_Administrators_Guide/sec-Configuring_GRUB_2_Using_the_grubby_Tool.html
+
+
 ## Start kdump daemon
 
 Check and make sure kernel command line includes the kdump config and memory
